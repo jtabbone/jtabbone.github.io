@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="ApplianceSight">
+    <meta name="author" content="John V. Tabbone">
+
+    <title>ApplianceSight</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/ApplianceSight.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+  <script>
+      function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /* Loop through a collection of all HTML elements: */
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+              elmnt = z[i];
+              /*search for elements with a certain atrribute:*/
+              file = elmnt.getAttribute("w3-include-html");
+              if (file) {
+                  /* Make an HTTP request using the attribute value as the file name: */
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                      if (this.readyState == 4) {
+                          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                          /* Remove the attribute, and call this function once more: */
+                          elmnt.removeAttribute("w3-include-html");
+                          includeHTML();
+                      }
+                  }
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /* Exit the function: */
+                  return;
+              }
+          }
+      }
+  </script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+ <!--       <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a> -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#problem">Problem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#engineering">Engineering</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#research">Research & Analysis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#testing">Testing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#tomorrow">Tomorrow</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-heading ">ApplianceSight</div>
+          <h2>DataScience in the hands of those who need it most</h2>
+        </div>
+      </div>
+    </header>
+
+    <!-- Problem -->
+    <section id="problem">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">The Problem</h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-8 mx-auto ">
+              <p class="large ">
+                Sighted people have a difficult time imagining the trouble that the visually impared face when trying to accomplish routine daily activities.
+              <ul>
+              <li>Right now, put on a blindfold.</li>
+              <li>Go to the kitchen.</li>
+              <li>Try to make popcorn in the microwave oven.</li>
+            </ul>
+                If you could manage to get to the kitchen and find the microwave oven, how would you figure out what buttons to press to cook your food?
+                Dials and knobs that might offer tactile feedback are no more these days.
+                Appliance manufactures prefer sleek flat panel banks of buttons
+              that offer no guidance to the visually challenged.
+              <br><br>
+              So what would you do if it were movie night and you wanted to make popcorn for your date?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center row-light">
+          <div class="col-md-4">
+            <img src="img/microwave_light.png">
+            <p class="text-muted">This is what a microwave oven looks like to a sighted person.</p>
+          </div>
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <img src="img/microwave_dark.png">
+            <p class="text-muted">This is what a microwave oven looks like to a visually impaired person.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 text-center mx-auto ">
+            <p class="large ">
+              <br>
+              <br>
+              <h3> Appliance Sight is affordable hand-held technology for the visually impared that eases the use of household appliances.
+            It provides independance and self autonomy that sighted people take for granted.
+          </h3>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering -->
+    <section class="bg-light" id="engineering">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Engineering the Solution</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto ">
+            <p class="large ">
+              Making sense of large amounts of information is a traditional application of DataScience.
+              We have developed a tool to process large amounts of visual information and help people operate their kitchen appliances.
+              <br>
+              <br>
+              Our current prototype is composed of off the shelf retail components.
+              It is essentially a Rasbery Pi with a camera that runs software to capture the image
+              directly underneath the user's finger.  Custom written computer vision algorithms will correct
+              imperfections to the image.  A neural network interprets the image and passes it to software
+              to announce the key to the user.
+              <br>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <img src="img/hardware.png" style="height:auto;width: 100%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Research & Analysis</h2>
+            <br>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#user_research">
+            <img class="img-fluid" src="img/blind_person_icon_2.png" alt="">
+          </a>
+          <div class="portfolio-caption"  align="center">
+            <h4>User Research</h4>
+            <p class="text-muted">Voice of the Customer</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#image_processing">
+            <img class="img-fluid" src="img/im_proc2.png" alt="">
+          </a>
+          <div class="portfolio-caption"  align="center">
+            <h4>Image Processing</h4>
+            <p class="text-muted">Data Workflow</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#model_development">
+            <img class="img-fluid" src="img/model2.png" alt="">
+          </a>
+          <div class="portfolio-caption"  align="center">
+            <h4>Model Development</h4>
+            <p class="text-muted">FCNN,CNN</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#image_centering">
+            <img class="img-fluid" src="img/5quad_2.png" alt="">
+          </a>
+          <div class="portfolio-caption"  align="center">
+            <h4>5 Quadrant Image Centering</h4>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#hardware_evolution">
+            <img class="img-fluid" src="img/hw_evolution1.png" alt="">
+          </a>
+          <div class="portfolio-caption"  align="center">
+            <h4>Hardware Evolution</h4>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#integration">
+            <img class="img-fluid" src="img/Integration_1.png" alt="">
+          </a>
+          <div class="portfolio-caption" align="center">
+            <h4>Integration</h4>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+    <!-- Testing -->
+    <section id="testing">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Testing</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 mx-auto ">
+            <p class="large ">
+              Our partners have been instrumental in the requirement, development, feedback loop
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12"></div>
+        </div>
+
+
+        <div class="row text-center mt-5">
+          <div class="col-md-12 text-center">
+            <img src="img/lighthouse.jpg" style="height:auto;width: 50%;">
+            <p class="text-muted">Lighthouse for the blind</p>
+          </div>
+        </div>
+        <div class="row text-center mt-5">
+          <div class="col-md-12">
+            <img src="img/eastbayblindcenter.jpg" style="height:auto;width: 15%;">
+            <p class="text-muted">East Bay center for the blind.</p>
+          </div>
+        </div>
+        <div class="row text-center row-light">
+          <div class="col-md-4">
+            <iframe src="https://player.vimeo.com/video/304255513" width="320" height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <p>
+              Noah Randalph testing ApplianceSight
+            </p>
+          </div>
+          <div class="col-md-4">
+            <iframe src="https://player.vimeo.com/video/304188442" width="320" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <p> Early testing at the LightHouse for hte Blind in Sanfransisco</p>
+          </div>
+          <div class="col-md-4">
+            <iframe width="320" height="240" src="https://player.vimeo.com/video/305506059" frameborder="0" allowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+            <p>
+              Recent testing at East Bay Center for the Blind
+            </p>
+          </div>
+        </div>
+
+
+
+
+
+    <!-- Team -->
+    <section class="bg-light" id="team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Team</h2>
+           </div>
+        </div>
+        <div class="row" mt-5>
+          <div class="col-md-12 text-center">
+            <p>
+              We are a group of friends and DataScientists who met at University of California, Berkley's Graduate Data Science program.
+            </p>
+          </div>
+        </div>
+        <div class="row" mt-5>
+          <div class="col-md-12 text-center">
+           <img src="img/dsab.png">
+          </div>
+        </div>
+
+        <div class="row" mt-5>
+          <div class="col-sm-3">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="img/team/amod.png" alt="">
+              <h4>Amod Ghangurde</h4>
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="img/team/anirudh.png" alt="">
+              <h4>Anirudh Mittal</h4>
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="img/team/noah.png" alt="">
+              <h4>Noah Randolph</h4>
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="img/team/john.png" alt="">
+              <h4>John Tabbone</h4>
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="https://www.linkedin.com/in/john-tabbone/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+          <h2> Advisors</h2>
+          </div>
+        </div>
+        <div class="row" mt-5>
+            <div class="col-sm-6">
+              <div class="team-member">
+                <img class="mx-auto rounded-circle" src="img/team/joyce.png" alt="">
+                <h4>Joyce Shen</h4>
+                <ul class="list-inline social-buttons">
+                  <li class="list-inline-item">
+                    <a href="https://www.linkedin.com/in/joycejshen/">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="team-member">
+                <img class="mx-auto rounded-circle" src="img/team/alberto.jpg" alt="">
+                <h4>Alberto Todeschini</h4>
+                <ul class="list-inline social-buttons">
+                  <li class="list-inline-item">
+                    <a href="https://www.linkedin.com/in/atodeschini/">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Tomorrow -->
+    <section class="bg-light" id="tomorrow">
+      <div class="Tomorrow">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Tomorrow...</h2>
+           </h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 mx-auto ">
+            <p>
+              One of the key challenges as well as our biggest learning experience has been the differences in performance of our product
+              within a controlled setting against field testing.
+              Lighthouse for the blind and East bay center provided us the opportunity to deploy
+              our product for a real test. We hope to improve our product design based on key findings:
+              <ul>
+                <li>Observed shaky hand while using the product - impacts image quality
+                <li>Starkly different lighting conditions - again impacts image quality
+                <li>Angle of image capture (camera field of view and angle w.r.t keypad)
+                <li>Form factor issues
+              </ul>
+              <h3>Roadmap</h3>
+            <p>
+              We plan to work on overcoming the challenges just described.
+              We also need to generalize our model to work on different types of appliances.
+              Leveraging the work that we have done so far, our team also envisions to develop
+              partnerships with companies that provide audio/visual services to the blind.
+            </p>
+            </p>
+            <p class="large ">
+              We learned also that one of the last major assistive technologies to help blind people was the invention of Braille in the mid 1800s.
+              Our vision is to finish providing the utility in the kitchen, then move the technology to other places.
+              A location aware device that can automatically download AI based on the users environment.  The kitchen?  The grocery store?  A museum?  It is all within reach.
+            </p>
+            <p>
+              And it is all worth doing.  Whether to help people live independent fulfilling lives or to update a 150 year old technology.
+              Many good things will come from this effort.
+            </p>
+            <p>
+              We need your help. We need partners, advisers, engineers, QA.  We need resources.  If you think you can help in any way, please reach out to us.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center mt-lg-5">
+            <img src="img/indiegogo2.png" style="height:auto;width: 25%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Contact Us</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; ApplianceSightPartners 2018</span>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
+
+  </body>
+
+
+  <!--  Detail tiles for Research & Analysis -->
+
+  <!-- User Research -->
+  <div class="portfolio-modal modal fade" id="user_research" tabindex="-1" role="dialog" aria-hidden="true">
+    <div w3-include-html="slides/user_research_slide.html"></div>
+  </div>
+
+  <!-- Image Processing -->
+  <div class="portfolio-modal modal fade" id="image_processing" tabindex="-1" role="dialog" aria-hidden="true">
+    <div w3-include-html="slides/image_processing_slide.html"></div>
+  </div>
+
+  <!-- Model Development -->
+  <div class="portfolio-modal modal fade" id="model_development" tabindex="-1" role="dialog" aria-hidden="true">
+    <div w3-include-html="slides/model_development_slide.html"></div>
+  </div>
+
+  <!-- 5 Quadrant Image Centering -->
+  <div class="portfolio-modal modal fade" id="image_centering" tabindex="-1" role="dialog" aria-hidden="true">
+   <div w3-include-html="slides/five_quad_slide.html"></div>
+  </div>
+
+  <!-- Hardware Evolution -->
+  <div class="portfolio-modal modal fade" id="hardware_evolution" tabindex="-1" role="dialog" aria-hidden="true">
+<div w3-include-html="slides/hardware_evolution_slide.html"></div>
+  </div>
+
+  <!-- Integration -->
+  <div class="portfolio-modal modal fade" id="integration" tabindex="-1" role="dialog" aria-hidden="true">
+    <div w3-include-html="slides/integration_slide.html"></div>
+  </div>
+
+  <script>
+      includeHTML();
+  </script>
+
+
+</html>

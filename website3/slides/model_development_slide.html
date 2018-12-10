@@ -1,0 +1,82 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2 class="text-uppercase">Model Development</h2>
+                        <!--          <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt=""> -->
+                        <div class="row">
+                            <p align="justify">
+                                A variety of machine learning techniques were tested.  In the end, the convolutional model that gave
+                                us the best performance had series of Convolve, non-linearity and MaxPool steps with
+                                increasing the depth of the layers from 32 to 64 before passing through a fully
+                                connected neural network
+
+                            </p>
+                            <div class="col-lg-12">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Model</th>
+                                        <th>Laboratory Test Performance</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr align="left">
+                                        <td>Google Vision API (web)</td>
+                                        <td>Inconsistent, costs money, 5-7 sec delay</td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td >Tesseract OCR (onboard)</td>
+                                        <td >Inconsistent output, digit and word reading configurations mutually exclusive</td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td>logistic regression (digits only)</td>
+                                        <td>54.8%</td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td>random forest (digits only)</td>
+                                        <td>84.5%</td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td>KNN (digits only)</td>
+                                        <td>76.5%%</td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td>Fully connected NN (digits only)</td>
+                                        <td>92.5%</td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td>CNN (digits only)</td>
+                                        <td>97.5%</td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td>CNN (digits + text)</td>
+                                        <td>98.5%</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            <h3 align="center">Fully Connected Neural Network</h3>
+                            <img class="img-fluid d-block mx-auto" src="img/fcnn.png" alt="">
+                            <br>
+                            <h3 align="center">Convolutional Neural Network</h3>
+                            <img class="img-fluid d-block mx-auto" src="img/cnn.png" alt="">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>
+                            Close </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

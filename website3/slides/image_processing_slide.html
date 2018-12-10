@@ -1,0 +1,138 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2 class="text-uppercase">Image Processing</h2>
+                        <br>
+                        <p class="item-intro text-muted">Collecting and preparing data to train the model.</p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="timeline">
+                                    <li>
+                                        <div class="timeline-image">
+                                            <img class="rounded-circle img-fluid" src="img/2_key_1.png" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4>Image captured by Raspberry Pi</h4>
+                                                <!--     <h4 class="subheading">Start</h4> -->
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p class="text-muted">We start with about 300 images of the keypad captured from the users fingertip camera.  Each greyscale image is 128 x 128 pixels in size</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- 5 quadrant -->
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image">
+                                            <img class="rounded-circle img-fluid" src="img/2_key_2.png" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4>Five Quadrant Image Centering</h4>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p class="text-muted">The pixels are centered in the screen using our Five Quadrant Image Centering Algorithm</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Augmenting the data set -->
+                                    <li>
+                                        <div class="timeline-image">
+                                            <img class="rounded-circle img-fluid" src="img/2_key_3.png" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4>Augmenting the data set</h4>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p class="text-muted">To make the training data more robust, we apply the following filters to each image:</p>
+                                                <ul>
+                                                    <li>Affine Transformation</li>
+                                                    <li>Gaussian Noise</li>
+                                                    <li>Contrast Normalization</li>
+                                                    <li>Median Blur</li>
+                                                    <li>Gaussian Blur</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Image Centering -->
+                                    <li class="timeline-inverted">
+                                        <div class="timeline-image">
+                                            <img class="rounded-circle img-fluid" src="img/8_key_1.png" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4>Image Centering</h4>
+                                                <h4 class="subheading">~6000 images</h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Calculate Threshold -->
+                                    <li>
+                                        <div class="timeline-image">
+                                            <img class="rounded-circle img-fluid" src="img/8_key_2.png" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4 align="Left">Determine Threshold</h4>
+                                                <p>Most of the data is noise.  Data at the 95th percentile
+                                                    is useful for classification</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Resize image -->
+                                    <li class ="timeline-inverted">
+                                        <div class="timeline-image">
+                                            <img class="rounded-circle img-fluid" src="img/8_key_3.png" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4>Resize image </h4>
+                                                </div>
+                                            <div class="timeline-body">
+                                                <p> Resize images to 64x64 and convert to greyscale.  We then apply median blur</p>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Image Threshold -->
+                                    <li>
+                                        <div class="timeline-image">
+                                            <img class="rounded-circle img-fluid" src="img/8_key_4.png" alt="">
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h4 align="Left">Image Threshold 64x64</h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- done -->
+                                    <li >
+                                        <div class="timeline-image">
+                                            <h4>~ 6000 Images
+                                                <br> ready to train the model</h4>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>
+                            Close Data Preparation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2 class="text-uppercase">Integration</h2>
+                        <p class="item-intro text-muted">Sequence of steps to capture a button image and report to user.</p>
+                        <div class="col-lg-12">
+                            <ul class="timeline">
+                                <!-- Image Capture -->
+                                <li class="timeline-inverted">
+                                    <div class="timeline-image">
+                                        <img class="rounded-circle img-fluid" src="img/integration_2.png" alt="">
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 align="right">Image Capture</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p align="right">User captures an image from fingertip camera</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Image Processing -->
+                                <li>
+                                    <div class="timeline-image">
+                                        <img class="rounded-circle img-fluid" src="img/integration_3.png" alt="">
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 align="left">Image Processing</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p align="left">Resolution is changed, Greyscale and median bluring is applied.  Threshold values are collected.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- User Guidance -->
+                                <li class="timeline-inverted">
+                                    <div class="timeline-image">
+                                        <img class="rounded-circle img-fluid" src="img/integration_4.png" alt="">
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 align="right">Positioning Guidance</h4>
+                                            <p align="right">5 Quadrant image centering is applied to determine where the
+                                            central mass of the index lies.  The user is given feedback to move the camera.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Classification -->
+                                <li>
+                                    <div class="timeline-image">
+                                        <img class="rounded-circle img-fluid" src="img/integration_5.png" alt="">
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 align="Left">Classification</h4>
+                                            <p align="left">Convolutional Neural Network conducts Optical Character Recognition</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Audio Signal -->
+                                <li class ="timeline-inverted">
+                                    <div class="timeline-image">
+                                        <img class="rounded-circle img-fluid" src="img/integration_6.png" alt="">
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 align="right">Audio Feedback</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p align="right"> The button identified by the neural network is announced to the user</p>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>
+                            Close </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
