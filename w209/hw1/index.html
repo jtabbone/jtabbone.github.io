@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>50 Burpees for Time</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
+    <link rel="stylesheet" href="css/proj1.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.v4.js"></script>    
+    <script src="js/box.js"></script>
+      <style>
+          .selected {
+          font-weight: bold;
+      }</style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1 align = "center">50 Burpees for Time</h1>
+      <h1 align = "center"><small>September 2015</small></h1>
+      <div class="row">
+        <div class="col-sm-2" ></div>
+        <div class="col-sm-8" id="text1">
+        <h3> For the past few years I have been recording the time it takes for me to complete
+           50 burpees.  I usually do this workout at least 3 times a week, and for a year or so before I did 100 burpees until surgeries for a torn bicept knocked me down a peg.  I normally do 5 sets of 10 burpees and then rest until i'm ready for the next set. </h3>
+        </div>
+        <div class="col-sm-2" ></div>
+      </div> 
+      <div class="row">
+        <div class="col-sm-2" id="fill"></div>  
+        <div class="col-sm-8" id="chart1"></div>
+        <div class="col-sm-2" id="fill"></div>
+      </div>  
+      <div class="row">
+        <div class="col-sm-2" id="fill"></div>
+        <div class="col-sm-8" id="text2">
+          <h3>My times often vary, it is hard to see if I am making progress.  There might be a trail-off in time in the last 3 workouts at the end of the month, but it hasn't lasted.  I track the time of each set and rest period.</h3>  
+              <h4> The sequence is:  </h4>
+                <li> Start Timer </li>
+                <li> Set of 10 burpees </li>
+                <li> Stop timer </li>
+                <li> Rest </li>
+                <li> Set of 10 burpees </li>
+                <li> Stop timer </li>
+                <li> Rest </li>
+                <li> and so on until 5 sets is reached </li>
+                <p>
+          <h4> Each time other than the first set is a rest + work period.  If there is a 0 in the last set, that means I did 50 burpees in 4 sets.  There is definitly more data to see in the table view. I'm wondering if there is a pattern in the columns</h4>
+          </div>
+        <div class="col-sm-2" id="fill"></div>
+      </div> 
+      <div class="row">
+        <div class="col-sm-2" id="fill"></div>  
+        <div class="col-sm-8" id="table1"></div>
+        <div class="col-sm-2" id="fill"></div>
+      </div> 
+      <div class="row">
+        <div class="col-sm-2" id="fill"></div>  
+        <div class="col-sm-8" id="text3">
+          <h3 align="center"> Set by set comparison</h3>
+            <h4>  This chart shows the percentage of time each set contributes to the workout.  I took out the two sessions that were only 4 sets.  A lot of this chart is corroborated by experience.  First, Set 4 is usually the hardest, I have pretty much run out of steam at that point, Set 1 is usually the easiest because I'm fresh when I start.  Interesting to note that regardless of the duration of the exercise, the channels are fairly stable.  
+            </h4>
+        </div>
+        <div class="col-sm-2" id="fill"></div>
+      </div>    
+      <div class="row">
+        <div class="col-sm-2" id="fill"></div>  
+        <div class="col-sm-8" id="chart2"></div>
+        <div class="col-sm-2" id="fill"></div>
+      </div>
+        <script>
+
+            /** code for the bar chart */
+            // width of svg
+            var svg_w = 800;
+            // height of svg
+            var svg_h = 400;
+
+            // The margin between the graphic and teh SVG
+            var margin = {top: 30, right: 20, bottom: 30, left: 100};
+            // width of the graphic
+            var width = svg_w - margin.left - margin.right;
+            // height of the graphic
+            var height = svg_h - margin.top - margin.bottom;
+
+            // The month of data to plot
+            month = "Sep"
+
+            /**
+             * load the csv file and convert the text data to
+             * numeric fields
+             */
+            d3.csv("data/burpees2.csv", function (d,i) {
+                d.row_num = i;
+                d.set_1 = +d.set_1;
+                d.set_2 = +d.set_2;
+                d.set_3 = +d.set_3;
+                d.set_4 = +d.set_4;
+                d.set_5 = +d.set_5;
+                d.secs = +d.secs;
+                return d;
+            }, function (error, data) {
+                if (error) throw error;
+
+                /**
+                 * store the data in burpees_data
+                 */
+                var burpees_data = data.filter(function (d) {
+                    d.month
+                    return d.month == month;
+                });
+
+                /**
+                 * select the div with id chart1 and append an svg
+                 */
+                var svg = d3.select("#chart1")
+                    .append("svg")
+                    .attr("width", svg_w)
+                    .attr("height", svg_h);
+
+                /**
+                 * create scale object
+                 */
+                var xScale = d3.scaleBand()
+                    .rangeRound([0, width])
+                    .padding(0.1)
+                    .domain(burpees_data.map(function (d) {
+                        return d.date;
+                    }));
+                /**
+                 * create yScale object
+                 */
+                var yScale = d3.scaleLinear()
+                    .rangeRound([height, 0])
+                    .domain([0, d3.max(data, function (d) {
+                        return d.secs;
+                    })]);
+
+                var g = svg.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                /**
+                 * Add x axis
+                 */
+                var xaxis = g.append("g")
+                        .attr("class", "axis axis--x")
+                        .attr("transform", "translate(0," + height + ")")
+                        .call(d3.axisBottom(xScale));
+
+                /**
+                 * Add x axis Label
+                 */
+                g.append("text")
+                    .attr("y", height + margin.bottom)
+                    .attr("x", width / 2)
+                    .attr("text-anchor", "center")
+                    .text("Date");
+
+                /**
+                 * Add y axis
+                 */
+                g.append("g")
+                    .attr("class", "axis axis--y")
+                    .call(d3.axisLeft(yScale).ticks(10));
+
+                /**
+                 * add text to y axis
+                 */
+                g.append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", -margin.left / 2)
+                    .attr("x", -svg_h / 2)
+                    .attr("text-anchor", "center")
+                    .text("Seconds");
+
+                /**
+                 * bind the bars to the burpee data
+                 */
+               var barGroup = g.selectAll("bar")
+                    .data(burpees_data)
+                    .enter()
+                    .append("rect")
+                    .attr("class", "bar")
+                    .attr("x", function (d) {
+                        return xScale(d.date);
+                    })
+                    .attr("y", function (d) {
+                        return yScale(d.secs);
+                    })
+                    .attr("width", xScale.bandwidth())
+                    .attr("height", function (d) {
+                        return height - yScale(d.secs);
+                    });
+
+            }); // end d3.csv
+
+
+            /**
+             *  Code for the table
+             *
+             *  There is probably a better way to do this, I tried for some time to have just one
+             *  code block, and load the data just once and bind it to different visualizations.
+             *  It didn't work too well, and this seemed to be easier and perhaps more in line
+             *  with web development.  I've realized during this exercise that although javascript
+             * is a general purpose language, we're not using it that way.  Instead, we are manipulating
+             * 4 framworks to control the DOM (HTML,CSS,js,d3).  Sometimes, one steps on the other.
+             *  For example, binding data to cells reuired two levels of functions because of the way
+             * tables are created in html.
+             */
+
+            /**
+             * Load the data and convert the string fields to numeric values
+             * using the + operator
+             */
+            d3.csv("data/burpees2.csv", function (d) {
+                d.row_num = +d.row_num;
+                d.set_1 = +d.set_1;
+                d.set_2 = +d.set_2;
+                d.set_3 = +d.set_3;
+                d.set_4 = +d.set_4;
+                d.set_5 = +d.set_5;
+                d.secs = +d.secs;
+                return d;
+            }, function (error, data) {
+                if (error) throw error;
+
+                // Save data to burpees_data
+                var burpees_data = data;
+
+                // The column names for the table
+                var column_names = ["Date", "Set 1", "Set 2", "Set 3", "Set 4", "Set 5", "Total"];
+
+                /*
+      * Create a table in the id for table
+      */
+                var table = d3.select("#table1")
+                    .append("div")
+                    .attr("class", "container-fluid")  //table-responsive")
+                    .append("table").attr("class", "table table-hover");
+
+                var thead = table
+                    .append("thead");
+
+                var tbody = table
+                    .append("tbody");
+
+                /** Bind the column names to the table header */
+                thead.append("tr")
+                    .selectAll("th")
+                    .data(column_names)
+                    .enter()
+                    .append("th")
+                    .text(function (col) {
+                        return col
+                    });
+
+                /**
+                 * Bind burpees_data to the table rows.  We attach a class indicating the row
+                 * number to each row.  At one point I wanted the row to hilite when the user
+                 * hovers over the corresponding bar in the above chart, but it is not as straight
+                 * forward in this kind of development
+                 */
+                var rows = tbody.selectAll("tr")
+                    .data(burpees_data)
+                    .enter()
+                    .append("tr")
+                    .attr("class", function (d) {
+                        return d.row_num;
+                    });
+
+                /**
+                 * Bind the cells to functions that will determint the correct
+                 * column name (index) and return the appropriate data from the
+                 * table data structure
+                 */
+                var cells = rows.selectAll('td')
+                    .data(function (row, i) {
+                        return column_names.map(function (column, i) {
+                            if (column == 'Date') {
+                                index = 'date'
+                            } else if (column == 'Total') {
+                                index = 'secs'
+                            } else {
+                                index = 'set_' + (i);
+                            }
+                            return {column: column, value: row[index]};
+                        });
+                    })
+                    .enter()
+                    .append('td')
+                    .text(function (d) {
+                        return d.value;
+                    });
+
+
+            }); // end d3.csv
+
+
+
+            /**
+             * The code for this chart is from https://bl.ocks.org/mbostock/3885211
+             * I can't claim credit for creating it, I tried for some time to create a
+             * steam graph, but this fell into place sooner.  I did document the code
+             * though and have a decent understanding of how it works, though I can't
+             * claim I am not surpeised that I couldn't get it working with a csv, somewhere
+             * in here is code that makes it compatable with tsv only.
+             */
+
+            /* Width of svg */
+            var svg_w = 800;
+            /* height of svg */
+            var svg_h = 400;
+            /* The margin between the graphic and the svg */
+            var margin = {top: 30, right: 20, bottom: 30, left: 100};
+            /* The width of the graphic */
+            var width = svg_w - margin.left - margin.right;
+            /* The height of the graphic */
+            var height = svg_h - margin.top - margin.bottom;
+
+            /*  Select the id for chart2 and drop an svg in there */
+            var svg = d3.select("#chart2")
+                .append("svg")
+                .attr("width", svg_w)
+                .attr("height", svg_h);
+
+            /* Create 3 functions to scale the dimensions x,y, and the diff between ys */
+            var x = d3.scaleTime().range([0, width]),
+                y = d3.scaleLinear().range([height, 0]),
+                z = d3.scaleOrdinal(d3.schemeCategory10);
+            /* Create a stack object to manage the areas being put atop each other */
+            var stack = d3.stack();
+
+            /*
+      * Function to calculate area of chanel
+      */
+            var area = d3.area()
+                .x(function (d, i) {
+                    return x(d.data.date);
+                })
+                .y0(function (d) {
+                    return y(d[0]);
+                })
+                .y1(function (d) {
+                    return y(d[1]);
+                });
+
+
+            var g = svg.append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            /** function to parse the date form the file */
+            var parseDate = d3.timeParse("%Y %b %d");
+
+            /** load the data */
+            d3.tsv("data/burpees_area.tsv", type, function (error, data) {
+                if (error) throw error;
+
+                /** gets the set columns */
+                var keys = data.columns.slice(1);
+
+                // x is the date axis
+                x.domain(d3.extent(data, function (d) {
+                    return d.date;
+                }));
+                // z is he stack of sets
+                z.domain(keys);
+                stack.keys(keys);
+
+                // uses layers here... have to look into this.
+                var layer = g.selectAll(".layer")
+                    .data(stack(data))
+                    .enter().append("g")
+                    .attr("class", "layer");
+
+                // draw the channel
+                layer.append("path")
+                    .attr("class", "area")
+                    .style("fill", function (d) {
+                        return z(d.key);
+                    })
+                    .attr("d", area);
+
+                /** need to understand this */
+                layer.filter(function (d) {
+                    return d[d.length - 1][1] - d[d.length - 1][0] > 0.01;
+                })
+                    .append("text")
+                    .attr("x", width - 6)
+                    .attr("y", function (d) {
+                        return y((d[d.length - 1][0] + d[d.length - 1][1]) / 2);
+                    })
+                    .attr("dy", ".35em")
+                    .style("font", "10px sans-serif")
+                    .style("text-anchor", "end")
+                    .text(function (d) {
+                        return d.key;
+                    });
+
+                /** Add x axis */
+                g.append("g")
+                    .attr("class", "axis axis--x")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x));
+
+                /** Add y axis */
+                g.append("g")
+                    .attr("class", "axis axis--y")
+                    .call(d3.axisLeft(y).ticks(10, "%"));
+            });
+
+            //javascript to format the data
+            function type(d, i, columns) {
+                d.date = parseDate(d.date);
+                for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = d[columns[i]] / 100;
+                return d;
+            }
+
+        </script>
+
+
+  </body>
+</html>
